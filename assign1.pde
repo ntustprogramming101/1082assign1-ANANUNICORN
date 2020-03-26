@@ -48,7 +48,7 @@ void draw() {
    fill(253,184,19);
    stroke(255,255,0);
    strokeWeight(5);
-   circle(x+270,y-190,120);
+ //  circle(x+270,y-190,120);
 
    //grass
    fill(124,204,05);
