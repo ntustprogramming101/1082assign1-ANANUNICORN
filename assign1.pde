@@ -29,7 +29,7 @@ void setup() {
   robotX = random(160,640-80);
   robotY = random(160,480);
   laserX1 = robotX;
-  laserX = robotX;
+  laserX = 0; //amount
   laserXSpeed = 2;
   
   bgImg = loadImage("img/bg.jpg");
@@ -78,12 +78,16 @@ void draw() {
    
    //laser
    
-   laserX = laserX - laserXSpeed;
-   laserX = int(laserX) % 185;
-   laserX = laserX1 + laserX -185;
+   laserX += laserXSpeed;
+   if(laserX > 185)
+   {
+   	laserX = 0;
+   }
+   
+   
    stroke(255,0,0);
    strokeWeight(10);
-   line(laserX,robotY+37,laserX+40,robotY+37);
+   line(laserX1 + laserX,robotY+37,laserX1 + laserX+40,robotY+37);
    
    //robot
    if (robotY<240) {robotY = 160;}
