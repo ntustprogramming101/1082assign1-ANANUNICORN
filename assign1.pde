@@ -79,7 +79,7 @@ void draw() {
    //laser
    
    laserX = laserX - laserXSpeed;
-   laserX = laserX % 185;
+   laserX = int(laserX) % 185;
    laserX = laserX1 + laserX -185;
    stroke(255,0,0);
    strokeWeight(10);
