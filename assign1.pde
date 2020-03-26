@@ -15,7 +15,7 @@
   float robotX;
   float robotY;
   
-  float laserX,laserX1;
+  float laserX,laserX1,robotHand;
   float laserXSpeed;
   
 void setup() {
@@ -78,16 +78,31 @@ void draw() {
    
    //laser
    
-   laserX += laserXSpeed;
-   if(laserX > 185)
+   
+
+   
+   if(laserX > 145)
    {
    	laserX = 0;
+	robotHand = 0;
    }
-   
    
    stroke(255,0,0);
    strokeWeight(10);
-   line(laserX1 - laserX,robotY+37,laserX1 - laserX+40,robotY+37);
+   
+   if(robotHand < 40) // grow
+   {
+   	line(laserX1 - robotHand - 25,robotY+37,laserX1 - 25,robotY+37);
+	robotHand += laserXSpeed;
+   }
+   else // move
+   {
+   	laserX += laserXSpeed;
+	line(laserX1 - laserX - robotHand - 25,robotY+37,laserX1 - laserX - robotHand - 25,robotY+37))
+   } 
+   
+   
+   
    
    //robot
    if (robotY<240) {robotY = 160;}
