@@ -30,6 +30,7 @@ void setup() {
   robotY = random(160,480);
   laserX1 = robotX;
   laserX = 0; //amount
+  robotHand = 0;
   laserXSpeed = 2;
   
   bgImg = loadImage("img/bg.jpg");
@@ -48,7 +49,7 @@ void draw() {
    fill(253,184,19);
    stroke(255,255,0);
    strokeWeight(5);
- //  circle(x+270,y-190,120);
+   ellipse(x+270,y-190,120,120);
 
    //grass
    fill(124,204,05);
@@ -84,7 +85,7 @@ void draw() {
    if(laserX > 145)
    {
    	laserX = 0;
-	robotHand = 0;
+	  robotHand = 0;
    }
    
    stroke(255,0,0);
@@ -93,12 +94,12 @@ void draw() {
    if(robotHand < 40) // grow
    {
    	line(laserX1 - robotHand - 25,robotY+37,laserX1 - 25,robotY+37);
-	robotHand += laserXSpeed;
+	  robotHand += laserXSpeed;
    }
    else // move
    {
    	laserX += laserXSpeed;
-	line(laserX1 - laserX - robotHand - 25,robotY+37,laserX1 - laserX - robotHand - 25,robotY+37))
+	  line(laserX1 - laserX - robotHand - 25,robotY+37,laserX1 - laserX - robotHand - 25 + 40,robotY+37);
    } 
    
    
