@@ -65,8 +65,8 @@ void draw() {
    
    //life
    image(lifeImg,40,40);
-   image(lifeImg,100,40);
-   image(lifeImg,160,40);
+   image(lifeImg,110,40);
+   image(lifeImg,180,40);
    
    //soldier
    soldierX = soldierX + soldierXspeed;
