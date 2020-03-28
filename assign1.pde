@@ -64,9 +64,9 @@ void draw() {
    image(groundhogImg,x,y-120);
    
    //life
-   image(lifeImg,40,40);
-   image(lifeImg,110,40);
-   image(lifeImg,180,40);
+   image(lifeImg,40,35);
+   image(lifeImg,110,35);
+   image(lifeImg,180,35);
    
    //soldier
    soldierX = soldierX + soldierXspeed;
