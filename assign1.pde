@@ -1,4 +1,4 @@
-  PImage bgImg;
+PImage bgImg;
   PImage groundhogImg;
   PImage lifeImg;
   PImage robotImg;
@@ -19,7 +19,7 @@
   float laserXSpeed;
   
 void setup() {
-	size(640, 480, P2D);
+  size(640, 480, P2D);
   x = 320;
   y = 240;
   soldierX = 0;
@@ -43,7 +43,7 @@ void setup() {
 
 void draw() {
    imageMode(CENTER);
-	 image(bgImg,x,y);
+   image(bgImg,x,y);
 
    //sun
    fill(253,184,19);
@@ -77,15 +77,18 @@ void draw() {
    else if (soldierY<480){soldierY = 400;}
    image(soldierImg,soldierX++,soldierY+40);
    
+   //robot
+   if (robotY<240) {robotY = 160;}
+   else if (robotY<320){robotY = 240;}
+   else if (robotY<400){robotY = 320;}
+   else if (robotY<480){robotY = 400;}
+   image(robotImg,robotX,robotY+40);
+   
    //laser
-   
-   
-
-   
-   if(laserX > 145)
+   if(laserX > 145 - 14.5)
    {
-   	laserX = 0;
-	  robotHand = 0;
+     laserX = 0;
+     robotHand = 0;
    }
    
    stroke(255,0,0);
@@ -93,22 +96,12 @@ void draw() {
    
    if(robotHand < 40) // grow
    {
-   	line(laserX1 - robotHand - 25,robotY+37,laserX1 - 25,robotY+37);
-	  robotHand += laserXSpeed;
+     line(laserX1 - robotHand - 14.5 ,robotY+37,laserX1 - 14.5 ,robotY+37);
+    robotHand += laserXSpeed;
    }
    else // move
    {
-   	laserX += laserXSpeed;
-	  line(laserX1 - laserX - robotHand - 25,robotY+37,laserX1 - laserX - robotHand - 25 + 40,robotY+37);
+     laserX += laserXSpeed;
+    line(laserX1 - laserX - robotHand - 14.5 ,robotY+37,laserX1 - laserX - robotHand + 40 - 14.5, robotY+37);
    } 
-   
-   
-   
-   
-   //robot
-   if (robotY<240) {robotY = 160;}
-   else if (robotY<320){robotY = 240;}
-   else if (robotY<400){robotY = 320;}
-   else if (robotY<480){robotY = 400;}
-   image(robotImg,robotX,robotY+40);
 }
